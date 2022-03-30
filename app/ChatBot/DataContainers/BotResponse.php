@@ -1,6 +1,6 @@
 <?php
 
-namespace WebXID\BotMaster\ChatBot\DataContainers;
+namespace WebXID\BotsMaster\ChatBot\DataContainers;
 
 use WebXID\EDMo\AbstractClass\BasicDataContainer;
 

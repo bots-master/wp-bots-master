@@ -1,8 +1,8 @@
 <?php
 
-namespace WebXID\BotMaster\Controllers;
+namespace WebXID\BotsMaster\Controllers;
 
-use WebXID\BotMaster\ChatBot;
+use WebXID\BotsMaster\ChatBot;
 use WebXID\EDMo\AbstractClass\BasicDataContainer;
 
 class WebHookController extends BasicDataContainer

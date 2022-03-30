@@ -1,11 +1,6 @@
 <?php
-/**
- * Admin View: Settings
- *
- * @package wpm
- */
 
-use WebXID\BotMaster\Config;
+use WebXID\BotsMaster\Config;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -17,7 +12,7 @@ wx_includeTpl('admin/parts/header', [
 ]);
 
 ?>
-<div id="wp-bot-master" class="container float-start">
+<div id="bots-master" class="container float-start">
     <div class="row mb-3">
         <div class="col-12">
             <h3><?php echo get_admin_page_title(); ?></h3>
@@ -37,7 +32,7 @@ wx_includeTpl('admin/parts/header', [
                     </div>
 
                     <div class="mb-3">
-                        <label for="welcome-message" class="form-label"><?=__('Welcome message', 'wp_bot_master')?></label>
+                        <label for="welcome-message" class="form-label"><?=__('Welcome message', 'bots_master')?></label>
 
                         <textarea class="form-control" id="welcome-message" name="<?=Config::WELCOME_MESSAGE?>" ><?=$welcome_message?></textarea>
 
@@ -46,7 +41,7 @@ wx_includeTpl('admin/parts/header', [
                     </div>
 
                     <div class="mb-3">
-                        <label for="unknown-message" class="form-label"><?=__('What your bot has to response, if someone sends unexpected message or request?', 'wp_bot_master')?></label>
+                        <label for="unknown-message" class="form-label"><?=__('What your bot has to response, if someone sends unexpected message or request?', 'bots_master')?></label>
 
                         <textarea class="form-control" id="unknown-message" name="<?=Config::UNKNOWN_MESSAGE?>" ><?=$unknown_message?></textarea>
 
@@ -64,7 +59,7 @@ wx_includeTpl('admin/parts/header', [
                         <li>Follow the link <a href="https://t.me/BotFather" target="_blank">https://t.me/BotFather</a></li>
                         <li>Create a bot <a href="https://youtu.be/aNmRNjME6mE?t=72" target="_blank">https://youtu.be/aNmRNjME6mE?t=72</a></li>
                         <li>Copy your API token <a href="https://imgur.com/CpWjw9w" target="_blank">https://imgur.com/CpWjw9w</a></li>
-                    </ol>', 'wp_bot_master')?>
+                    </ol>', 'bots_master')?>
                 </div>
 
             </form>

@@ -1,9 +1,9 @@
 <?php
 
-namespace WebXID\BotMaster\Admin\Controllers;
+namespace WebXID\BotsMaster\Admin\Controllers;
 
-use WebXID\BotMaster\ChatBot;
-use WebXID\BotMaster\Config;
+use WebXID\BotsMaster\ChatBot;
+use WebXID\BotsMaster\Config;
 
 class SettingsController extends BasicController
 {
@@ -28,7 +28,7 @@ class SettingsController extends BasicController
         Config::set(Config::WELCOME_MESSAGE, $_POST[Config::WELCOME_MESSAGE]);
         Config::set(Config::UNKNOWN_MESSAGE, $_POST[Config::UNKNOWN_MESSAGE]);
 
-        $webhook_url = site_url('/wp-json/wx-bot-master/webhook/telegram.json');
+        $webhook_url = site_url('/wp-json/wx-bots-master/webhook/telegram.json');
 
         try {
             $bot = ChatBot::factory(ChatBot::TELEGRAM_ID);
@@ -37,7 +37,7 @@ class SettingsController extends BasicController
 
             $this->setMessages(
                 Config::TELEGRAM_API_TOKEN,
-                __('Webhook has been set up successfully', 'wp_bot_master') . '. Webhook link: ' . $webhook_url
+                __('Webhook has been set up successfully', 'bots_master') . '. Webhook link: ' . $webhook_url
             );
 
         } catch (\Throwable $e) {

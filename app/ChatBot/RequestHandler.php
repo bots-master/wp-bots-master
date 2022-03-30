@@ -1,10 +1,10 @@
 <?php
 
-namespace WebXID\BotMaster\ChatBot;
+namespace WebXID\BotsMaster\ChatBot;
 
-use WebXID\BotMaster\ChatBot;
-use WebXID\BotMaster\ChatBot\DataContainers\BotResponse;
-use WebXID\BotMaster\Config;
+use WebXID\BotsMaster\ChatBot;
+use WebXID\BotsMaster\ChatBot\DataContainers\BotResponse;
+use WebXID\BotsMaster\Config;
 use WebXID\EDMo\AbstractClass\BasicDataContainer;
 
 /**

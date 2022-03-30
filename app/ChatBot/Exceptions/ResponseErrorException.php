@@ -1,6 +1,6 @@
 <?php
 
-namespace WebXID\BotMaster\ChatBot\Exceptions;
+namespace WebXID\BotsMaster\ChatBot\Exceptions;
 
 class ResponseErrorException extends \RuntimeException
 {

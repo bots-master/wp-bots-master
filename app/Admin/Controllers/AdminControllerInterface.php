@@ -1,6 +1,6 @@
 <?php
 
-namespace WebXID\BotMaster\Admin\Controllers;
+namespace WebXID\BotsMaster\Admin\Controllers;
 
 interface AdminControllerInterface
 {

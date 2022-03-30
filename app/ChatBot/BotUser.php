@@ -1,6 +1,6 @@
 <?php
 
-namespace WebXID\BotMaster\ChatBot;
+namespace WebXID\BotsMaster\ChatBot;
 
 use WebXID\EDMo\AbstractClass\MultiKeyModel;
 use WebXID\EDMo\Rules;

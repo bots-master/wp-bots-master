@@ -1,8 +1,8 @@
 <?php
 
-namespace WebXID\BotMaster\Admin\Controllers;
+namespace WebXID\BotsMaster\Admin\Controllers;
 
-use WebXID\BotMaster\ChatBot;
+use WebXID\BotsMaster\ChatBot;
 
 class ChannelsListController extends BasicController
 {

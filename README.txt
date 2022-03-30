@@ -12,7 +12,7 @@ The plugin helps you to send a message to your Telegram Bot subscribers
 
 == Description ==
 
-GitHub project: https://github.com/bots-master/wp-bot-master
+GitHub project: https://github.com/bots-master/wp-bots-master
 
 **The features list**
 - Telegram Bot integration
@@ -68,8 +68,8 @@ Now, your bot will posts a message to the Chat, you send at `Bot Master > Send M
 == Code Usage ==
 
 ```php
-use WebXID\BotMaster\ChatBot;
-use WebXID\BotMaster\ChatBot\BotUser;
+use WebXID\BotsMaster\ChatBot;
+use WebXID\BotsMaster\ChatBot\BotUser;
 
 BotUser::find(['type_id' => ChatBot\BotUser::TYPE_CHAT]); // returns all Group Chats and Channels list
 BotUser::find(['type_id' => ChatBot\BotUser::TYPE_USER]); // returns all subscribers

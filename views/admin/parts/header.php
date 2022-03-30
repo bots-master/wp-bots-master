@@ -15,12 +15,12 @@ $messages = ($messages ?? null) instanceof Error
 
 ?>
 <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="<?=plugins_url( 'bot-master/assets/admin/css/bootstrap.min.css' );?>">
-<link rel="stylesheet" href="<?=plugins_url( 'bot-master/assets/admin/css/style.css' );?>">
+<link rel="stylesheet" href="<?=plugins_url( 'bots-master/assets/admin/css/bootstrap.min.css' );?>">
+<link rel="stylesheet" href="<?=plugins_url( 'bots-master/assets/admin/css/style.css' );?>">
 
 <script src="//unpkg.com/alpinejs" defer></script>
-<script src="<?=plugins_url( 'bot-master/assets/admin/js/bootstrap.min.js' );?>"></script>
-<script src="<?=plugins_url( 'bot-master/assets/admin/js/ckeditor/ckeditor.js' );?>"></script>
+<script src="<?=plugins_url( 'bots-master/assets/admin/js/bootstrap.min.js' );?>"></script>
+<script src="<?=plugins_url( 'bots-master/assets/admin/js/ckeditor/ckeditor.js' );?>"></script>
 
 
 <div class="container mt-4 float-start <?=($messages ? 'mb-5' : '')?>">

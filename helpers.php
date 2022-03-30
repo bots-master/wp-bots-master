@@ -1,7 +1,7 @@
 <?php
 
-use WebXID\BotMaster\Config;
-use WebXID\BotMaster\Tpl;
+use WebXID\BotsMaster\Config;
+use WebXID\BotsMaster\Tpl;
 
 if (!class_exists ('env')) {
 

@@ -4,7 +4,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "WebXID\\BotMaster\\": "app/"
+            "WebXID\\BotsMaster\\": "app/"
         },
         "files": [
             "helpers.php"

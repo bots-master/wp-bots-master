@@ -14,8 +14,8 @@ To get "How To Use" the plugin, place check [./README.txt](./README.txt)
 ## To get subscribers and/or chats list
 
 ```php
-use WebXID\BotMaster\ChatBot;
-use WebXID\BotMaster\ChatBot\BotUser;
+use WebXID\BotsMaster\ChatBot;
+use WebXID\BotsMaster\ChatBot\BotUser;
 
 BotUser::find(['type_id' => ChatBot\BotUser::TYPE_CHAT]); // returns all Group Chats and Channels list
 BotUser::find(['type_id' => ChatBot\BotUser::TYPE_USER]); // returns all subscribers
@@ -26,8 +26,8 @@ BotUser::all(); // returns all records
 ## To send message to a subsctiber or a chat
 
 ```php
-use WebXID\BotMaster\ChatBot;
-use WebXID\BotMaster\ChatBot\BotUser;
+use WebXID\BotsMaster\ChatBot;
+use WebXID\BotsMaster\ChatBot\BotUser;
 $bot_user = BotUser::findOne(['type_id' => ChatBot\BotUser::TYPE_USER]);
 
 $bot_user
@@ -40,8 +40,8 @@ $bot_user
 Please, check folder [./app/Admin/Controllers](./app/Admin/Controllers)
 
 ```php
-use WebXID\BotMaster\Admin\MenuRegistrer;
-use WebXID\BotMaster\Admin\Controllers\BasicController;
+use WebXID\BotsMaster\Admin\MenuRegistrer;
+use WebXID\BotsMaster\Admin\Controllers\BasicController;
 
 class MyController extends BasicController
 {
@@ -61,19 +61,19 @@ class MyController extends BasicController
 // -----------------------
 
 MenuRegistrer::make()
-    ->menuTitle(__( 'Bot Master', 'wp_bot_master' ))
-        ->subMenuTitle('🚀️ ' . __( 'Send Message', 'wp_bot_master' ))
-        ->pageTitle('🚀 ' . __( 'Send message', 'wp_bot_master' ))
+    ->menuTitle(__( 'Bot Master', 'bots_master' ))
+        ->subMenuTitle('🚀️ ' . __( 'Send Message', 'bots_master' ))
+        ->pageTitle('🚀 ' . __( 'Send message', 'bots_master' ))
     ->capability('manage_options')
     ->slug($parent_menu_slug)
-    ->iconUrl(plugins_url('bot-master/assets/images/icon.svg'))
+    ->iconUrl(plugins_url('bots-master/assets/images/icon.svg'))
     ->requestHendler(MyController::class)
     ->register();
 
 MenuRegistrer::childTo($parent_menu_slug)
-    ->menuTitle('📢 ' . __( 'Channels', 'wp_bot_master' ))
-    ->pageTitle('📢 ' . __( 'Channels', 'wp_bot_master' ))
-    ->slug('bot-master-channels-list')
+    ->menuTitle('📢 ' . __( 'Channels', 'bots_master' ))
+    ->pageTitle('📢 ' . __( 'Channels', 'bots_master' ))
+    ->slug('bots-master-channels-list')
     ->requestHendler(MyController::class)
     ->capability('manage_options')
     ->register();
@@ -81,7 +81,7 @@ MenuRegistrer::childTo($parent_menu_slug)
 
 ## Debug Telegram requests
 
-The webhook controller is here `\WebXID\BotMaster\Controllers\WebHookController::telegram()`;
+The webhook controller is here `\WebXID\BotsMaster\Controllers\WebHookController::telegram()`;
 
 To dump a data use the next functions
 

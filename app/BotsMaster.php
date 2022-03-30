@@ -1,17 +1,17 @@
 <?php
 
-namespace WebXID\BotMaster;
+namespace WebXID\BotsMaster;
 
-use WebXID\BotMaster\Admin\Controllers\ChannelsListController;
-use WebXID\BotMaster\Admin\Controllers\SendMessageController;
-use WebXID\BotMaster\Admin\Controllers\SettingsController;
-use WebXID\BotMaster\Admin\MenuRegistrer;
-use WebXID\BotMaster\ChatBot\BotUser;
-use WebXID\BotMaster\Controllers\WebHookController;
+use WebXID\BotsMaster\Admin\Controllers\ChannelsListController;
+use WebXID\BotsMaster\Admin\Controllers\SendMessageController;
+use WebXID\BotsMaster\Admin\Controllers\SettingsController;
+use WebXID\BotsMaster\Admin\MenuRegistrer;
+use WebXID\BotsMaster\ChatBot\BotUser;
+use WebXID\BotsMaster\Controllers\WebHookController;
 use WebXID\EDMo\AbstractClass\BasicDataContainer;
 use WebXID\EDMo\DB;
 
-class BotMaster extends BasicDataContainer
+class BotsMaster extends BasicDataContainer
 {
     #region Actions
 
@@ -46,8 +46,8 @@ class BotMaster extends BasicDataContainer
         }
 
         // Installation logic
-        register_activation_hook( Tpl::route('wp-bot-master.php'), [$this, 'pluginActivation'] );
-        register_deactivation_hook( Tpl::route('wp-bot-master.php'), [$this, 'pluginDeactivation'] );
+        register_activation_hook( Tpl::route('bots-master.php'), [$this, 'pluginActivation'] );
+        register_deactivation_hook( Tpl::route('bots-master.php'), [$this, 'pluginDeactivation'] );
 
         // Init Admin Menu
         add_action( 'admin_menu', [$this, 'initAdmisnMenu'] );
@@ -58,7 +58,7 @@ class BotMaster extends BasicDataContainer
     public function initRestAPI()
     {
         add_action( 'rest_api_init', function () {
-            register_rest_route( 'wx-bot-master', 'webhook/telegram.json', [
+            register_rest_route( 'wx-bots-master', 'webhook/telegram.json', [
                 'methods' => \WP_REST_Server::ALLMETHODS,
                 'callback' => [WebHookController::make(), 'telegram'],
             ]);
@@ -74,60 +74,60 @@ class BotMaster extends BasicDataContainer
      */
     public function initAdmisnMenu()
     {
-        $parent_menu_slug = 'bot-master';
+        $parent_menu_slug = 'bots-master';
 
         if (!wx_config(Config::TELEGRAM_API_TOKEN))  {
             MenuRegistrer::make()
-                ->menuTitle(__( 'Bot Master', 'wp_bot_master' ))
-                ->subMenuTitle('⚙️ ' .  __( 'Bot Settings', 'wp_bot_master' ))
-                ->pageTitle('⚙️ ' .  __( 'Bot Master Settings', 'wp_bot_master' ))
+                ->menuTitle(__( 'Bot Master', 'bots_master' ))
+                ->subMenuTitle('⚙️ ' .  __( 'Bot Settings', 'bots_master' ))
+                ->pageTitle('⚙️ ' .  __( 'Bot Master Settings', 'bots_master' ))
                 ->slug($parent_menu_slug)
                 ->requestHendler(SettingsController::class)
                 ->capability('manage_options')
-                ->iconUrl(plugins_url('wp-bot-master/assets/images/logo.svg'))
+                ->iconUrl(plugins_url('bots-master/assets/images/icon.svg'))
                 ->register();
 
             MenuRegistrer::childTo($parent_menu_slug)
-                ->menuTitle('📢 ' . __( 'Channels', 'wp_bot_master' ))
-                ->pageTitle('📢 ' . __( 'Channels', 'wp_bot_master' ))
-                ->slug('bot-master-channels-list')
+                ->menuTitle('📢 ' . __( 'Channels', 'bots_master' ))
+                ->pageTitle('📢 ' . __( 'Channels', 'bots_master' ))
+                ->slug('bots-master-channels-list')
                 ->requestHendler(ChannelsListController::class)
                 ->capability('manage_options')
                 ->register();
 
             MenuRegistrer::childTo($parent_menu_slug)
-                ->menuTitle('🚀 ' . __( 'Send Message', 'wp_bot_master' ))
-                ->pageTitle('🚀 ' . __( 'Send message', 'wp_bot_master' ))
-                ->slug('bot-master-send-message')
+                ->menuTitle('🚀 ' . __( 'Send Message', 'bots_master' ))
+                ->pageTitle('🚀 ' . __( 'Send message', 'bots_master' ))
+                ->slug('bots-master-send-message')
                 ->requestHendler(SendMessageController::class)
                 ->capability('manage_options')
                 ->register();
         } else {
-            $parent_menu_slug = 'bot-master-send-message';
+            $parent_menu_slug = 'bots-master-send-message';
 
             MenuRegistrer::make()
-                ->menuTitle(__( 'Bot Master', 'wp_bot_master' ))
-                    ->subMenuTitle('🚀️ ' . __( 'Send Message', 'wp_bot_master' ))
-                    ->pageTitle('🚀 ' . __( 'Send message', 'wp_bot_master' ))
+                ->menuTitle(__( 'Bot Master', 'bots_master' ))
+                    ->subMenuTitle('🚀️ ' . __( 'Send Message', 'bots_master' ))
+                    ->pageTitle('🚀 ' . __( 'Send message', 'bots_master' ))
                 ->capability('manage_options')
                 ->slug($parent_menu_slug)
-                ->iconUrl(plugins_url('wp-bot-master/assets/images/icon.svg'))
+                ->iconUrl(plugins_url('bots-master/assets/images/icon.svg'))
                 ->requestHendler(SendMessageController::class)
                 ->register();
 
             MenuRegistrer::childTo($parent_menu_slug)
-                ->menuTitle('📢 ' . __( 'Channels', 'wp_bot_master' ))
-                ->pageTitle('📢 ' . __( 'Channels', 'wp_bot_master' ))
-                ->slug('bot-master-channels-list')
+                ->menuTitle('📢 ' . __( 'Channels', 'bots_master' ))
+                ->pageTitle('📢 ' . __( 'Channels', 'bots_master' ))
+                ->slug('bots-master-channels-list')
                 ->requestHendler(ChannelsListController::class)
                 ->capability('manage_options')
                 ->register();
 
             MenuRegistrer::childTo($parent_menu_slug)
-                ->menuTitle('⚙️ ' . __( 'Bot Settings', 'wp_bot_master' ))
-                ->pageTitle('⚙️ ' .  __( 'Bot Master Settings', 'wp_bot_master' ))
+                ->menuTitle('⚙️ ' . __( 'Bot Settings', 'bots_master' ))
+                ->pageTitle('⚙️ ' .  __( 'Bot Master Settings', 'bots_master' ))
                 ->capability('manage_options')
-                ->slug('bot-master')
+                ->slug('bots-master')
                 ->requestHendler(SettingsController::class)
                 ->register();
         }

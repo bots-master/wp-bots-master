@@ -1,9 +1,4 @@
 <?php
-/**
- * Admin View: Channels List
- *
- * @package wpm
- */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -15,7 +10,7 @@ wx_includeTpl('admin/parts/header', [
 ]);
 
 ?>
-<div id="wp-bot-master" class="container float-start">
+<div id="bots-master" class="container float-start">
     <div class="row mb-3">
         <div class="col-12">
             <h3><?php echo get_admin_page_title(); ?></h3>

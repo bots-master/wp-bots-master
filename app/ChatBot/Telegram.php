@@ -1,11 +1,11 @@
 <?php
 
-namespace WebXID\BotMaster\ChatBot;
+namespace WebXID\BotsMaster\ChatBot;
 
-use WebXID\BotMaster\ChatBot;
+use WebXID\BotsMaster\ChatBot;
 use Longman\TelegramBot;
-use WebXID\BotMaster\ChatBot\DataContainers\BotResponse;
-use WebXID\BotMaster\Config;
+use WebXID\BotsMaster\ChatBot\DataContainers\BotResponse;
+use WebXID\BotsMaster\Config;
 
 /**
  * @property TelegramBot\Telegram client

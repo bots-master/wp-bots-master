@@ -1,8 +1,8 @@
 <?php
 
-namespace WebXID\BotMaster\Admin;
+namespace WebXID\BotsMaster\Admin;
 
-use WebXID\BotMaster\Admin\Controllers\AdminControllerInterface;
+use WebXID\BotsMaster\Admin\Controllers\AdminControllerInterface;
 use WebXID\EDMo\AbstractClass\BasicDataContainer;
 
 /**

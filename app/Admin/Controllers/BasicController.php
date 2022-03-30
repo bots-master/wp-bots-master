@@ -1,6 +1,6 @@
 <?php
 
-namespace WebXID\BotMaster\Admin\Controllers;
+namespace WebXID\BotsMaster\Admin\Controllers;
 
 use WebXID\EDMo\AbstractClass\BasicDataContainer;
 use WebXID\EDMo\Validation\Error;
@@ -34,7 +34,7 @@ abstract class BasicController extends BasicDataContainer implements AdminContro
      */
     protected function setError(string $param_name, string $message)
     {
-        $this->errors->add($param_name, __($message, 'wp_bot_master'));
+        $this->errors->add($param_name, __($message, 'bots_master'));
     }
 
     #endregion

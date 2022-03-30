@@ -1,6 +1,6 @@
 <?php
 
-namespace WebXID\BotMaster;
+namespace WebXID\BotsMaster;
 
 class Tpl
 {
