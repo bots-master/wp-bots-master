@@ -46,8 +46,8 @@ class BotMaster extends BasicDataContainer
         }
 
         // Installation logic
-        register_activation_hook( Tpl::route('bot-master.php'), [$this, 'pluginActivation'] );
-        register_deactivation_hook( Tpl::route('bot-master.php'), [$this, 'pluginDeactivation'] );
+        register_activation_hook( Tpl::route('wp-bot-master.php'), [$this, 'pluginActivation'] );
+        register_deactivation_hook( Tpl::route('wp-bot-master.php'), [$this, 'pluginDeactivation'] );
 
         // Init Admin Menu
         add_action( 'admin_menu', [$this, 'initAdmisnMenu'] );
@@ -84,7 +84,7 @@ class BotMaster extends BasicDataContainer
                 ->slug($parent_menu_slug)
                 ->requestHendler(SettingsController::class)
                 ->capability('manage_options')
-                ->iconUrl(plugins_url('bot-master/assets/images/logo.svg'))
+                ->iconUrl(plugins_url('wp-bot-master/assets/images/logo.svg'))
                 ->register();
 
             MenuRegistrer::childTo($parent_menu_slug)
@@ -111,7 +111,7 @@ class BotMaster extends BasicDataContainer
                     ->pageTitle('🚀 ' . __( 'Send message', 'wp_bot_master' ))
                 ->capability('manage_options')
                 ->slug($parent_menu_slug)
-                ->iconUrl(plugins_url('bot-master/assets/images/icon.svg'))
+                ->iconUrl(plugins_url('wp-bot-master/assets/images/icon.svg'))
                 ->requestHendler(SendMessageController::class)
                 ->register();
 
