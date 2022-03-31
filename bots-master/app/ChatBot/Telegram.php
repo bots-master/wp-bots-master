@@ -100,17 +100,13 @@ class Telegram extends ChatBot
 
         $text = str_ireplace('\"', '"', $message->message);
 
-        $text = preg_replace("/<p[^>]*?>/", "", $text);
-        $text = str_replace("</p>", "<br/>", $text);
-
-        $text = preg_replace("/<div[^>]*?>/", "", $text);
-        $text = str_replace("</div>", "<br>", $text);
+        $text = preg_replace("/<(p|div)[^>]( *)?>/", "", $text);
+        $text = str_replace(["</p>", "</div>"], "\n", $text);
 
         $text = strip_tags($text, '<br><a><b><i><strong><em><code><pre>');
-
         $text = str_ireplace(["<br />","<br>","<br/>"], "\n", $text);
-
-        ___dump($text);
+        $text = str_ireplace('&nbsp;', " ", $text);
+        $text = preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/si",'<$1$2>', $text); // remove all attributes
 
         $responce = TelegramBot\Request::sendMessage([
             'chat_id' => $this->bot_user->provider_user_id,

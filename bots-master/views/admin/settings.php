@@ -2,6 +2,7 @@
 
 use WebXID\BotsMaster\Config;
 use function WebXID\BotsMaster\includeTpl;
+use WebXID\BotsMaster\Tpl;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -11,6 +12,8 @@ includeTpl('admin/parts/header', [
     'errors' => $wx_errors ?? null,
     'messages' => $wx_messages ?? null
 ]);
+
+wp_enqueue_script('ckeditor', Tpl::pluginUrl( 'assets/admin/js/ckeditor5.min.js'));
 
 ?>
 <div id="bots-master" class="container float-start">
@@ -35,18 +38,14 @@ includeTpl('admin/parts/header', [
                     <div class="mb-3">
                         <label for="welcome-message" class="form-label"><?php echo __('Welcome message', 'bots_master');?></label>
 
-                        <textarea class="form-control" id="welcome-message" name="<?php echo Config::WELCOME_MESSAGE;?>" ><?php echo $welcome_message?></textarea>
-
-                        <?php includeTpl('admin/parts/message_editor_js', ['textarea_id' => 'welcome-message']); ?>
+                        <textarea class="form-control wx-bots-master-ckeditor" id="welcome-message" name="<?php echo Config::WELCOME_MESSAGE;?>" ><?php echo $welcome_message?></textarea>
 
                     </div>
 
                     <div class="mb-3">
                         <label for="unknown-message" class="form-label"><?php echo __('What your bot has to response, if someone sends unexpected message or request?', 'bots_master')?></label>
 
-                        <textarea class="form-control" id="unknown-message" name="<?php echo Config::UNKNOWN_MESSAGE?>" ><?php echo $unknown_message?></textarea>
-
-                        <?php includeTpl('admin/parts/message_editor_js', ['textarea_id' => 'unknown-message']); ?>
+                        <textarea class="form-control wx-bots-master-ckeditor" id="unknown-message" name="<?php echo Config::UNKNOWN_MESSAGE?>" ><?php echo $unknown_message?></textarea>
                     </div>
 
                     <p class="submit">

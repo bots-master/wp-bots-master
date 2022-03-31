@@ -1,2 +1,5 @@
 /bots-master/vendor
 /.idea
+/ckeditor5/node_modules/
+/bots-master/assets/admin/js/ckeditor5.min.js.map
+/bots-master/assets/admin/js/ckeditor5.min.js.LICENSE.txt
