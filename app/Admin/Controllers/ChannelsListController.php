@@ -66,7 +66,9 @@ class ChannelsListController extends BasicController
 
             $for_removal
                 && ChatBot\BotUser::remove([
-                    'provider_user_id' => array_map(fn (ChatBot\BotUser $user) => $user->provider_user_id, $for_removal),
+                    'provider_user_id' => array_map(function (ChatBot\BotUser $user) {
+                        return $user->provider_user_id;
+                    }, $for_removal),
                 ]);
 
             $this->setMessages('chats', 'Saved successfully');

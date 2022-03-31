@@ -52,7 +52,7 @@ class Telegram extends ChatBot
     /**
      * @inheritDoc
      */
-    public static function build(?BotUser $bot_user): self
+    public static function build(?BotUser $bot_user): ChatBot
     {
         if (!config(Config::TELEGRAM_API_TOKEN)) {
             throw new \LogicException('Invalid telegram bot API token');
@@ -71,7 +71,7 @@ class Telegram extends ChatBot
     /**
      * @inheritDoc
      */
-    public function setupWebhook(string $url): self
+    public function setupWebhook(string $url): ChatBot
     {
         if (!$url) {
             throw new \InvalidArgumentException('Invalid $url');
@@ -91,7 +91,7 @@ class Telegram extends ChatBot
      * @see https://telegram-bot-sdk.readme.io/reference/sendmessage
      * @inheritDoc
      */
-    public function send(BotResponse $message): self
+    public function send(BotResponse $message): ChatBot
     {
         if (!$this->bot_user) {
             throw new \LogicException('Invalid bot_user');

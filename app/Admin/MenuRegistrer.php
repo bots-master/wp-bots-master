@@ -59,7 +59,7 @@ class MenuRegistrer extends BasicDataContainer
                     ? [$request_hendler_instance, 'loadPage']
                     : false,
                 $this->icon_url ?? '',
-                $this->position,
+                $this->position
             );
 
             if ($this->sub_menu_title) {
