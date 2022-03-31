@@ -1,13 +1,15 @@
 This is readme file for development.
+The plugin source is here [./bots-master](./bots-master)
 
-To get "How To Use" the plugin, place check [./README.txt](./README.txt)
+To get "How To Use" the plugin, place check [./bots-master/README.txt](./bots-master/README.txt)
 
 
 # Install
 
 1. Clone the repo
 2. Run `composer install`
-3. Activate the plugin in WP Admin panel - [./README.txt](./README.txt)
+3. Activate the plugin in Debelopment Mode
+4. Follow the [./bots-master/README.txt](./bots-master/README.txt) to setup the plugun in WP Admin
 
 # How To Use
 
@@ -66,7 +68,7 @@ MenuRegistrer::make()
         ->pageTitle('🚀 ' . __( 'Send message', 'bots_master' ))
     ->capability('manage_options')
     ->slug($parent_menu_slug)
-    ->iconUrl(plugins_url('bots-master/assets/images/icon.svg'))
+    ->iconUrl(plugins_url(WX_BOTS_MASTER_DIR . 'assets/images/icon.svg'))
     ->requestHendler(MyController::class)
     ->register();
 

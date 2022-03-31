@@ -2,23 +2,19 @@
     "name": "webxid/bot-manager",
     "license": "LICENSE",
     "type": "project",
-    "autoload": {
-        "psr-4": {
-            "WebXID\\BotsMaster\\": "app/"
-        },
-        "files": [
-            "helpers.php"
-        ]
-    },
     "authors": [
         {
             "name": "PavloM",
             "email": "webxid@ukr.net"
         }
     ],
+    "config": {
+        "vendor-dir": "bots-master/vendor"
+    },
     "require": {
         "php": ">=7.2",
         "webxid/edmo": "^2.0",
         "longman/telegram-bot": ">0.6"
     }
 }
+
