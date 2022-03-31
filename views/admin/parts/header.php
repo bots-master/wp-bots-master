@@ -1,4 +1,5 @@
 <?php
+
 use WebXID\EDMo\Validation\Error;
 
 /** @var Error $errors */
@@ -13,27 +14,25 @@ $messages = ($messages ?? null) instanceof Error
     : []
 ;
 
+wp_enqueue_style('bootstrap', plugins_url( '/bots-master/assets/admin/css/bootstrap.min.css' ));
+wp_enqueue_style('bots_master', plugins_url( '/bots-master/assets/admin/css/style.css' ));
+
+wp_enqueue_script('alpine', plugins_url( '/bots-master/assets/admin/js/alpine.3.9.5.min.js'));
+wp_enqueue_script('bootstrap', plugins_url( '/bots-master/assets/admin/js/bootstrap.min.js'));
+
 ?>
-<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="<?=plugins_url( 'bots-master/assets/admin/css/bootstrap.min.css' );?>">
-<link rel="stylesheet" href="<?=plugins_url( 'bots-master/assets/admin/css/style.css' );?>">
 
-<script src="//unpkg.com/alpinejs" defer></script>
-<script src="<?=plugins_url( 'bots-master/assets/admin/js/bootstrap.min.js' );?>"></script>
-<script src="<?=plugins_url( 'bots-master/assets/admin/js/ckeditor/ckeditor.js' );?>"></script>
-
-
-<div class="container mt-4 float-start <?=($messages ? 'mb-5' : '')?>">
+<div class="container mt-4 float-start <?php echo ($messages ? 'mb-5' : '')?>">
 
     <?php
 
     foreach ($messages as $param_name => $error_message) {
-        echo <<<TPL
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          {$error_message}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    TPL;
+        echo '
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              ' . $error_message . '
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        ';
     }
 
     ?>
@@ -42,17 +41,17 @@ $messages = ($messages ?? null) instanceof Error
 
 
 
-<div class="container mt-4 float-start <?=($errors ? 'mb-5' : '')?>">
+<div class="container mt-4 float-start <?php echo ($errors ? 'mb-5' : '')?>">
 
 <?php
 
 foreach ($errors as $param_name => $error_message) {
-    echo <<<TPL
+    echo '
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          {$error_message}
+          ' . $error_message . '
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    TPL;
+    ';
 }
 
 ?>

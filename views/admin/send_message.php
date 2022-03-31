@@ -1,10 +1,12 @@
 <?php
 
+use function WebXID\BotsMaster\includeTpl;
+
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-wx_includeTpl('admin/parts/header', [
+includeTpl('admin/parts/header', [
     'errors' => $wx_errors ?? null,
     'messages' => $wx_messages ?? null
 ]);
@@ -27,11 +29,11 @@ wx_includeTpl('admin/parts/header', [
                     <textarea name="message" id="message-editor" cols="30" rows="10" maxlength="4000"></textarea>
                 </div>
                 <div class="col-12 text-end">
-                    <button type="submit" class="btn btn-primary"><?=__('Send')?></button>
+                    <button type="submit" class="btn btn-primary"><?php echo __('Send')?></button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-<?php wx_includeTpl('admin/parts/message_editor_js', ['textarea_id' => 'message-editor']); ?>
+<?php includeTpl('admin/parts/message_editor_js', ['textarea_id' => 'message-editor']); ?>

@@ -1,10 +1,12 @@
 <?php
 
+use function WebXID\BotsMaster\includeTpl;
+
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-wx_includeTpl('admin/parts/header', [
+includeTpl('admin/parts/header', [
     'errors' => $wx_errors ?? null,
     'messages' => $wx_messages ?? null
 ]);
@@ -23,8 +25,8 @@ wx_includeTpl('admin/parts/header', [
 
     <div class="row"
          x-data='{
-            items: <?=json_encode($chats_list)?>,
-            count: <?=count($chats_list)?>
+            items: <?php echo json_encode($chats_list)?>,
+            count: <?php echo count($chats_list)?>
          }'>
         <div class="col-12 col-md-6 ">
             <form class="row" method="post">
@@ -48,7 +50,7 @@ wx_includeTpl('admin/parts/header', [
 
                 </div>
                 <div class="col-12">
-                    <input type="submit" class="btn btn-primary" value="<?=__('Save')?>" name="submit">
+                    <input type="submit" class="btn btn-primary" value="<?php echo __('Save')?>" name="submit">
                     <button type="button" @click="items.push('');" class="btn btn-outline-secondary float-end">+ Add Chat</button>
                 </div>
             </form>
@@ -71,4 +73,4 @@ wx_includeTpl('admin/parts/header', [
     </div>
 </div>
 
-<?php wx_includeTpl('admin/parts/message_editor_js', ['textarea_id' => 'message-editor']); ?>
+<?php includeTpl('admin/parts/message_editor_js', ['textarea_id' => 'message-editor'])?>

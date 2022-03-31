@@ -86,10 +86,15 @@ The webhook controller is here `\WebXID\BotsMaster\Controllers\WebHookController
 To dump a data use the next functions
 
 ```php
-wx_log($data); // Adds Dump of the $data var to the end of log file and continue a script procssing
-wx_log_and_clean($data); // Cleaned up the log file, Dumps the $data var and continue a script procssing
-wx_log_and_die($data); // Adds Dump of the $data var to the end of log file and break a script processing
-wx_log_clean_die($data); // Cleaned up the log file, Adds Dump of the $data var to the end of log file and break a script processing
+use function WebXID\BotsMaster\_log;
+use function WebXID\BotsMaster\_log_and_clean; 
+use function WebXID\BotsMaster\_log_and_die;
+use function WebXID\BotsMaster\_log_clean_die;
+
+_log($data); // Adds Dump of the $data var to the end of log file and continue a script procssing
+_log_and_clean($data); // Cleaned up the log file, Dumps the $data var and continue a script procssing
+_log_and_die($data); // Adds Dump of the $data var to the end of log file and break a script processing
+_log_clean_die($data); // Cleaned up the log file, Adds Dump of the $data var to the end of log file and break a script processing
 ```
 
 The log file route: `ABSPATH . '/logs/webxid.log'`.

@@ -76,7 +76,7 @@ class BotsMaster extends BasicDataContainer
     {
         $parent_menu_slug = 'bots-master';
 
-        if (!wx_config(Config::TELEGRAM_API_TOKEN))  {
+        if (!config(Config::TELEGRAM_API_TOKEN))  {
             MenuRegistrer::make()
                 ->menuTitle(__( 'Bot Master', 'bots_master' ))
                 ->subMenuTitle('⚙️ ' .  __( 'Bot Settings', 'bots_master' ))

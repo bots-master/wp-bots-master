@@ -2,13 +2,13 @@
 Contributors: webxid
 Donate link: https://bit.ly/3JSMitJ
 Tags: telegram, bot, responder, mailing, chatbot, chat
-Requires at least: 3.0.1
-Tested up to: 3.4
+Requires at least: 4.9
+Tested up to: 5.9.2
 Stable tag: 1.0.0
 License: Apache 2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
-The plugin helps you to send a message to your Telegram Bot subscribers
+The plugin helps to send a message to a Telegram Bot subscribers
 
 == Description ==
 

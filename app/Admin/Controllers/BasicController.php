@@ -4,6 +4,7 @@ namespace WebXID\BotsMaster\Admin\Controllers;
 
 use WebXID\EDMo\AbstractClass\BasicDataContainer;
 use WebXID\EDMo\Validation\Error;
+use function WebXID\BotsMaster\includeTpl;
 
 abstract class BasicController extends BasicDataContainer implements AdminControllerInterface
 {
@@ -44,7 +45,7 @@ abstract class BasicController extends BasicDataContainer implements AdminContro
      */
     protected function view(string $tpl_file_name, array $data = [])
     {
-        wx_includeTpl($tpl_file_name, [
+        includeTpl($tpl_file_name, [
                 'wx_errors' => $this->errors,
                 'wx_messages' => $this->messages,
         ] + $data);

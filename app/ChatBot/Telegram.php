@@ -6,6 +6,7 @@ use WebXID\BotsMaster\ChatBot;
 use Longman\TelegramBot;
 use WebXID\BotsMaster\ChatBot\DataContainers\BotResponse;
 use WebXID\BotsMaster\Config;
+use function WebXID\BotsMaster\config;
 
 /**
  * @property TelegramBot\Telegram client
@@ -53,12 +54,12 @@ class Telegram extends ChatBot
      */
     public static function build(?BotUser $bot_user): self
     {
-        if (!wx_config(Config::TELEGRAM_API_TOKEN)) {
+        if (!config(Config::TELEGRAM_API_TOKEN)) {
             throw new \LogicException('Invalid telegram bot API token');
         }
 
         $object = static::make([
-            'client' => new TelegramBot\Telegram(wx_config(Config::TELEGRAM_API_TOKEN)),
+            'client' => new TelegramBot\Telegram(config(Config::TELEGRAM_API_TOKEN)),
             'bot_user' => $bot_user,
         ]);
 
