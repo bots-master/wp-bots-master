@@ -20,7 +20,9 @@ class SendMessageController extends BasicController
      */
     public function postRequest()
     {
-        if (empty($_POST['message'])) {
+        $message = wp_kses_post($_POST['message'] ?? '');
+
+        if (!$message) {
             $this->setError('message', 'An empty message cannot be sent');
 
             return;
@@ -31,7 +33,7 @@ class SendMessageController extends BasicController
         foreach (ChatBot\BotUser::all() as $user) {
             try {
                 ChatBot::factory($user)
-                    ->sendMessage($_POST['message']);
+                    ->sendMessage($message);
 
                 $count ++;
             } catch (\RuntimeException $e) {

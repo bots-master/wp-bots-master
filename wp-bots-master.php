@@ -19,4 +19,5 @@
 
 define('WX_BOTS_MASTER_DEV_MODE', true);
 
+require_once __DIR__ . '/debug_stuff.php';
 require_once __DIR__ . '/bots-master/bots-master.php';

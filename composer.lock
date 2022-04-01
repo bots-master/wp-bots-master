@@ -747,16 +747,16 @@
         },
         {
             "name": "webxid/edmo",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webxid/EDMo.git",
-                "reference": "1bf4012210cc1e7bfbb3f37711c02953f677248a"
+                "reference": "d8927a0a56823becaf2e29bde58f31b34aae7457"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webxid/EDMo/zipball/1bf4012210cc1e7bfbb3f37711c02953f677248a",
-                "reference": "1bf4012210cc1e7bfbb3f37711c02953f677248a",
+                "url": "https://api.github.com/repos/webxid/EDMo/zipball/d8927a0a56823becaf2e29bde58f31b34aae7457",
+                "reference": "d8927a0a56823becaf2e29bde58f31b34aae7457",
                 "shasum": ""
             },
             "require": {
@@ -785,9 +785,9 @@
             "homepage": "https://github.com/webxid/EDMo",
             "support": {
                 "issues": "https://github.com/webxid/EDMo/issues",
-                "source": "https://github.com/webxid/EDMo/tree/v2.0.1"
+                "source": "https://github.com/webxid/EDMo/tree/v2.0.2"
             },
-            "time": "2022-03-30T10:11:09+00:00"
+            "time": "2022-04-01T12:46:36+00:00"
         }
     ],
     "packages-dev": [],

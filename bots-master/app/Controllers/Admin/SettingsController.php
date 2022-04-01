@@ -24,9 +24,13 @@ class SettingsController extends BasicController
      */
     public function postRequest()
     {
-        Config::set(Config::TELEGRAM_API_TOKEN, $_POST[Config::TELEGRAM_API_TOKEN]);
-        Config::set(Config::WELCOME_MESSAGE, $_POST[Config::WELCOME_MESSAGE]);
-        Config::set(Config::UNKNOWN_MESSAGE, $_POST[Config::UNKNOWN_MESSAGE]);
+        $api_key = sanitize_text_field($_POST[Config::TELEGRAM_API_TOKEN]);
+        $welcome_message = wp_kses_post($_POST[Config::WELCOME_MESSAGE]);
+        $unknown_message = wp_kses_post($_POST[Config::UNKNOWN_MESSAGE]);
+
+        Config::set(Config::TELEGRAM_API_TOKEN, $api_key);
+        Config::set(Config::WELCOME_MESSAGE, $welcome_message);
+        Config::set(Config::UNKNOWN_MESSAGE, $unknown_message);
 
         $webhook_url = site_url('/wp-json/wx-bots-master/webhook/telegram.json');
 
@@ -41,6 +45,8 @@ class SettingsController extends BasicController
             );
 
         } catch (\Throwable $e) {
+            Config::delete(Config::TELEGRAM_API_TOKEN);
+
             $this->setError(
                 Config::TELEGRAM_API_TOKEN,
                 $e->getMessage()

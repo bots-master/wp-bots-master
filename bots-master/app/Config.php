@@ -38,7 +38,7 @@ class Config extends BasicDataContainer
      */
     public static function isDebug(): bool
     {
-        return WP_DEBUG;
+        return WP_DEBUG || WX_BOTS_MASTER_DEV_MODE;
     }
 
     #endregion

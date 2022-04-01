@@ -32,20 +32,20 @@ wp_enqueue_script('ckeditor', Tpl::pluginUrl( 'assets/admin/js/ckeditor5.min.js'
                 <div class="col-12 col-sm-6 mb-3">
                     <div class="mb-3">
                         <label for="floatingInput" class="form-label">Telegram Bot API Token</label>
-                        <input type="text" style="-webkit-text-security: disc;" autocomplete="off" name="<?php echo Config::TELEGRAM_API_TOKEN?>" class="form-control" id="floatingInput" placeholder="777253030:AAFAwetR6k8ZmcW6ij95ab0pg2zstU4-X4w" value="<?php echo $telegram_api_token?>">
+                        <input type="text" style="-webkit-text-security: disc;" autocomplete="off" name="<?php echo Config::TELEGRAM_API_TOKEN?>" class="form-control" id="floatingInput" placeholder="777253030:AAFAwetR6k8ZmcW6ij95ab0pg2zstU4-X4w" value="<?php echo esc_textarea($telegram_api_token)?>">
                     </div>
 
                     <div class="mb-3">
                         <label for="welcome-message" class="form-label"><?php echo __('Welcome message', 'bots_master');?></label>
 
-                        <textarea class="form-control wx-bots-master-ckeditor" id="welcome-message" name="<?php echo Config::WELCOME_MESSAGE;?>" ><?php echo $welcome_message?></textarea>
+                        <textarea class="form-control wx-bots-master-ckeditor" id="welcome-message" name="<?php echo Config::WELCOME_MESSAGE;?>" ><?php echo esc_html($welcome_message)?></textarea>
 
                     </div>
 
                     <div class="mb-3">
                         <label for="unknown-message" class="form-label"><?php echo __('What your bot has to response, if someone sends unexpected message or request?', 'bots_master')?></label>
 
-                        <textarea class="form-control wx-bots-master-ckeditor" id="unknown-message" name="<?php echo Config::UNKNOWN_MESSAGE?>" ><?php echo $unknown_message?></textarea>
+                        <textarea class="form-control wx-bots-master-ckeditor" id="unknown-message" name="<?php echo Config::UNKNOWN_MESSAGE?>" ><?php echo esc_html($unknown_message)?></textarea>
                     </div>
 
                     <p class="submit">

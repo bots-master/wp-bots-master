@@ -83,7 +83,12 @@ class BotUser extends MultiKeyModel
      */
     public static function getRules() : Rules
     {
-        return Rules::make();
+        return Rules::make([
+            'username' => Rules\Field::string([
+                Rules\Type::itRequired('username is required'),
+                Rules\Type::regexp('/^(@)?[a-zA-Z0-9_]+$/', __('`username` contains disallowed chars', 'bots_master')),
+            ]),
+        ]);
     }
 
     /**

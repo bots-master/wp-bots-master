@@ -19,6 +19,18 @@ abstract class BasicController extends BasicDataContainer implements AdminContro
         $this->messages = Error::init();
     }
 
+    #region Is Condition Mthods
+
+    /**
+     * @return bool
+     */
+    protected function hasError(): bool
+    {
+        return $this->errors->isNotEmpty();
+    }
+
+    #endregion
+
     #region Setters
 
     /**

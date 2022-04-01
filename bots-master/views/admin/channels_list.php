@@ -51,13 +51,13 @@ includeTpl('admin/parts/header', [
                 </div>
                 <div class="col-12">
                     <input type="submit" class="btn btn-primary" value="<?php echo __('Save')?>" name="submit">
-                    <button type="button" @click="items.push('');" class="btn btn-outline-secondary float-end">+ Add Chat</button>
+                    <button type="button" @click="items.push('');" class="btn btn-outline-secondary float-end">+ <?php echo __('Add Chat', 'bots_master')?></button>
                 </div>
             </form>
         </div>
         <div class="col-12 col-md-1 "></div>
         <div class="col-12 col-md-5 ">
-            <h6>Checklist to make it works</h6>
+        <?php echo __('<h6>Checklist to make it works</h6>
             <ol>
                 <li>Before starting, you should setup a bot at Bot Settings page</li>
                 <li>
@@ -68,7 +68,8 @@ includeTpl('admin/parts/header', [
                 <li>Press the Save button</li>
             </ol>
 
-            Now you are able to send messages at Send Message page to added Group Chat / Channel
+            Now you are able to send messages at Send Message page to added Group Chat / Channel')
+        ?>
         </div>
     </div>
 </div>

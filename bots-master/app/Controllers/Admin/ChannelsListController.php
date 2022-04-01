@@ -3,6 +3,8 @@
 namespace WebXID\BotsMaster\Controllers\Admin;
 
 use WebXID\BotsMaster\ChatBot;
+use WebXID\BotsMaster\Config;
+use WebXID\EDMo\Rules;
 
 class ChannelsListController extends BasicController
 {
@@ -14,7 +16,7 @@ class ChannelsListController extends BasicController
         $this->view('admin/channels_list', [
             'chats_list' => array_map(
                 function (ChatBot\BotUser $user) {
-                    return trim($user->provider_user_id, '@');
+                    return esc_textarea(trim($user->provider_user_id, '@'));
                 },
                 ChatBot\BotUser::find(['type_id' => ChatBot\BotUser::TYPE_CHAT])
             ),
@@ -38,7 +40,11 @@ class ChannelsListController extends BasicController
             $count = 0;
             $for_removal = ChatBot\BotUser::find(['type_id' => ChatBot\BotUser::TYPE_CHAT]);
 
-            foreach ($_POST['chats'] as $chat_username) {
+            $rules = Rules::filterRulesData(['username' => true], ChatBot\BotUser::getRules());
+
+            foreach ($_POST['chats'] as $index => $chat_username) {
+                $chat_username = sanitize_text_field(trim($chat_username, '@'));
+
                 foreach ($for_removal as $key => $chat) {
                     if ($chat_username != $chat->username) {
                         continue;
@@ -51,7 +57,11 @@ class ChannelsListController extends BasicController
                     continue;
                 }
 
-                $chat_username = trim($chat_username, '@');
+                if (!$rules->isValid(['username' => $chat_username])) {
+                    $this->setError($index, $chat_username . ': ' . $rules->validation->getFirstError());
+
+                    return;
+                }
 
                 ChatBot\BotUser::addNewOrUpdate([
                     'provider_id' => ChatBot::TELEGRAM_ID,
@@ -71,9 +81,15 @@ class ChannelsListController extends BasicController
                     }, $for_removal),
                 ]);
 
-            $this->setMessages('chats', 'Saved successfully');
+            if (!$this->hasError()) {
+                $this->setMessages('chats', 'Saved successfully');
+            }
         } catch (\Throwable $e) {
             $this->setError('chats', $e->getMessage());
+
+            if (Config::isDebug()) {
+                $this->setError('chats_error', nl2br($e->getTraceAsString()));
+            }
         }
     }
 
