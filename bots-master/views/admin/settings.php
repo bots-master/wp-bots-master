@@ -32,7 +32,7 @@ wp_enqueue_script('ckeditor', Tpl::pluginUrl( 'assets/admin/js/ckeditor5.min.js'
                 <div class="col-12 col-sm-6 mb-3">
                     <div class="mb-3">
                         <label for="floatingInput" class="form-label">Telegram Bot API Token</label>
-                        <input type="text" style="-webkit-text-security: disc;" autocomplete="off" name="<?php echo Config::TELEGRAM_API_TOKEN?>" class="form-control" id="floatingInput" placeholder="777253030:AAFAwetR6k8ZmcW6ij95ab0pg2zstU4-X4w" value="<?php echo esc_textarea($telegram_api_token)?>">
+                        <input type="text" style="-webkit-text-security: disc;" autocomplete="off" name="<?php echo Config::TELEGRAM_API_TOKEN?>" class="form-control" id="floatingInput" placeholder="777253030:AA************************zstU4-X4w" value="<?php echo esc_textarea($telegram_api_token)?>">
                     </div>
 
                     <div class="mb-3">
