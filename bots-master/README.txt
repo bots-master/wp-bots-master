@@ -5,6 +5,7 @@ Tags: telegram, bot, responder, mailing, chatbot, chat
 Requires at least: 4.9
 Tested up to: 5.9.2
 Stable tag: 1.0.0
+Requires PHP: 7.2
 License: Apache 2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
